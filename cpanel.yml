@@ -25,7 +25,22 @@ jobs:
           FTP_HOST: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
+          protocol: ftps
           port: 21
-
+  slackNotification:
+    needs: build-deploy
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Git-Auto-Deployment
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: deploy
+        SLACK_COLOR: ${{ job.status }}
+        SLACK_ICON: https://xufire.com/x-theme.png
+        SLACK_MESSAGE: 'Xufire Profit -Dev- Uploaded :rocket:'
+        SLACK_TITLE: Xufire test deploy
+        SLACK_USERNAME: Git Auto Deployment
+        SLACK_WEBHOOK: ${{ secrets.SLACK_DEPLOYMENTS_WEBHOOK }}
         # TODO: generate API doc before upload from test
