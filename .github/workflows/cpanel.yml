@@ -11,6 +11,13 @@ jobs:
       - name: Get latest code
         uses: actions/checkout@v2
 
+      # Setup PHP version on server
+      - name: Setup PHP
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          # extensions: imagick, swoole # if project need extensions in future
+
       # deploy to FTP server
       - name: Deploy files to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
