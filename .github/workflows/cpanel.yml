@@ -10,15 +10,15 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ['5.6', '7.0', '7.1', '7.2', '7.3','7.4', '8.0', '8.1']
+        php-version: ['7.4', '8.0', '8.1']
 
     steps:
       - name: Get latest code
-        uses: shivammathur/checkout@v2
+        uses: actions/checkout@v2
 
       # Setup PHP version on server
       - name: Setup PHP ${{ matrix.php-version }}
-        uses: shivammathur/setup-php@v2
+        uses: actions/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
           extensions: imagick, swoole
@@ -37,7 +37,7 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-      - uses: shivammathur/checkout@v2
+      - uses: actions/checkout@v2
       - name: Git-Auto-Deployment
         uses: rtCamp/action-slack-notify@v2
         env:
