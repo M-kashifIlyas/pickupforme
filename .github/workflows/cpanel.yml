@@ -13,7 +13,7 @@ jobs:
 
       # Setup PHP version on server
       - name: Setup PHP
-        uses: public_html/intern/setup-php@v2
+        uses: public_html/setup-php@v2
         with:
           php-version: '8.1'
           extensions: imagick, swoole
