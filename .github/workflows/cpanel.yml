@@ -13,7 +13,7 @@ jobs:
 
       # Setup PHP version on server
       - name: Setup PHP
-        uses: public_html/intern
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           php-version: 8.0
           # extensions: imagick, swoole # if project need extensions in future
