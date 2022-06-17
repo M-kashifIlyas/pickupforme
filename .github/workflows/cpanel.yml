@@ -28,7 +28,7 @@ jobs:
           protocol: ftps
           port: 21
   slackNotification:
-    needs: build-deploy
+    needs: web-deploy
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
