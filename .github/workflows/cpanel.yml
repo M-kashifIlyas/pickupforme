@@ -20,7 +20,7 @@ jobs:
       - name: Setup PHP ${{ matrix.php-version }}
         uses: actions/setup-php@v2
         with:
-          php-version: ea-php80
+          php-version: ${{ matrix.php-version }}
           extensions: imagick, swoole
 
       # deploy to FTP server
