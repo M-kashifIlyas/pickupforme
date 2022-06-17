@@ -13,9 +13,9 @@ jobs:
 
       # Setup PHP version on server
       - name: Setup PHP
-        uses: actions/setup-node@v2
+        uses: actions/setup-php@v2
         with:
-          node-version: '14'
+          node-version: '8.0'
           # extensions: imagick, swoole # if project need extensions in future
 
       # deploy to FTP server
